@@ -112,7 +112,7 @@ public class ShortestPathsTest {
 
     @Test
     void thirdTest() {
-        TestGraph graph = testGraph2();
+        TestGraph graph = testGraph3();
         ShortestPaths<String, int[]> ssp = new ShortestPaths<>(graph);
         ssp.singleSourceDistances("a");
         assertEquals(7, ssp.getDistance("e"));
@@ -122,7 +122,7 @@ public class ShortestPathsTest {
             sb.append(" " + vertices1[e[0]]);
         }
         sb.append(" e");
-        assertEquals("best path: a b c e", sb.toString());
+        assertEquals("best path: a d e", sb.toString());
     }
 
     // TODO: Add 2 more tests
