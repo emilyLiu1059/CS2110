@@ -53,6 +53,7 @@ public class ShortestPaths<Vertex, Edge> {
         distances = new HashMap<>();
         bestEdges = new HashMap<>();
         distances.put(source, 0.0);
+        bestEdges.put(source, null);
         while (!frontier.isEmpty()) {
             Vertex v = frontier.extractMin();
             for (Edge e : graph.outgoingEdges(v)) {
@@ -70,7 +71,6 @@ public class ShortestPaths<Vertex, Edge> {
                 }
             }
         }
-           // TODO: Complete computation of distances and best-path edges
     }
 
     /**

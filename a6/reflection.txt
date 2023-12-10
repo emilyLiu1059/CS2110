@@ -2,17 +2,17 @@
 
 ## Submitter metadata
 
-Partner 1: Firstname Lastname (NetID)  - TODO
-Partner 2: Firstname Lastname (NetID)  - delete if working solo
+Partner 1: Firstname Lastname (NetID)  - Emily Liu (eyl48)
+Partner 2: Firstname Lastname (NetID)  - Sara Tardif (sct87)
 
-Hours spent working on this assignment: 0.0  - TODO
+Hours spent working on this assignment: 18
 
 ## Verification questions
 
 1. How many coins does your McDiver collect when running with a seed of
    `-4004310660161599891`?
 
-   Answer: TODO
+   Answer: 395
 
 ## Reflection questions
 
@@ -20,16 +20,26 @@ Hours spent working on this assignment: 0.0  - TODO
    which coin to collect next, and how does he ensure he always escapes in time?
    Also describe how you came up with this strategy and why you settled on it.
 
-   Answer: TODO
+   Answer: To start, a LinkedList data structure was created that stored all vertices that contains coins. Next, the recursive helper method is called
+   which primary purpose is to determine whether McDiver should pick up any additional coins or exit. The helper method starts by checking if all coins
+   have been collected with the if statement and if so, it will move directly to the exit and the method will end. Otherwise, the nodes with coins are
+   sorted based on distance (closest to furthest) from McDiver's current position. While the distance to the closest coin plus the distance to the exit
+   is greater than the number of steps remaining and the counter is less than the number of nodes with coins, the best path to the coin is taken;
+   otherwise, a Node "closest" is set to the next nearest coin. Finally, the method checks if the "closest" coin vertex can be reached in enough steps
+   to still get to the exit; if the coin vertex is null then McDiver heads directly for the exit. The coin collected is removed from the LinkedList and
+   the helper method is called again recursively.
 
 2. Are you aware of any areas where your submission is not working as intended?
    If so, describe the issue and what you did to try to diagnose it.  Otherwise,
    describe how you verified that your submission fulfilled its requirements.
 
-   Answer: TODO
+   Answer: We believe that our submission fulfilled its requirements as McDiver was always able to collect the ring and escape within the prescribed number of steps.
+   We tested on the selected seeds provided on the assignment as well as on many random ones with the scram completing successfully on all attempts. In regards
+   to the shortest path algorithm, we tested potential corner cases and no errors presented themselves. ALthough not fully optimized with seek and scram, the program
+   runs as intended.
 
 3. Did you implement your own priority queue, or add other new classes to the
    project?  If so, describe them here so your grader is aware of their
    existence.
 
-   Answer: TODO
+   Answer: No we didn't add any classes or implement our own priority queue.

@@ -96,7 +96,40 @@ public class ShortestPathsTest {
     }
 
     @Test
+    void lectureNotesTest1() {
+        TestGraph graph = testGraph1();
+        ShortestPaths<String, int[]> ssp = new ShortestPaths<>(graph);
+        ssp.singleSourceDistances("e");
+        assertEquals(3, ssp.getDistance("f")); // intermediate node f
+        assertEquals(19, ssp.getDistance("g")); // travel through intermediate node f instead of direct path to get to g (since path is shorter)
+        StringBuilder sb = new StringBuilder();
+        sb.append("best path:");
+        for (int[] e : ssp.bestPath("g")) {
+            sb.append(" " + vertices1[e[0]]);
+        }
+        sb.append(" g");
+        assertEquals("best path: e f g", sb.toString());
+    }
+
+    @Test
+    void lectureNotesTest2() {
+        //tests path to self
+        TestGraph graph = testGraph1();
+        ShortestPaths<String, int[]> ssp = new ShortestPaths<>(graph);
+        ssp.singleSourceDistances("g");
+        assertEquals(0, ssp.getDistance("g"));
+        StringBuilder sb = new StringBuilder();
+        sb.append("best path:");
+        for (int[] e : ssp.bestPath("g")) {
+            sb.append(" " + vertices1[e[0]]);
+        }
+        sb.append(" g");
+        assertEquals("best path: g", sb.toString());
+    }
+
+    @Test
     void secondTest() {
+        //tests another random graph
         TestGraph graph = testGraph2();
         ShortestPaths<String, int[]> ssp = new ShortestPaths<>(graph);
         ssp.singleSourceDistances("a");
@@ -112,6 +145,7 @@ public class ShortestPathsTest {
 
     @Test
     void thirdTest() {
+        //tests graph with two equal weight paths to destination node
         TestGraph graph = testGraph3();
         ShortestPaths<String, int[]> ssp = new ShortestPaths<>(graph);
         ssp.singleSourceDistances("a");
@@ -124,6 +158,4 @@ public class ShortestPathsTest {
         sb.append(" e");
         assertEquals("best path: a d e", sb.toString());
     }
-
-    // TODO: Add 2 more tests
 }

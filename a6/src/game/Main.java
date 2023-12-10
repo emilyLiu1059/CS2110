@@ -8,7 +8,7 @@ import java.util.Random;
  */
 public class Main {
     static long seed = new Random().nextLong();
-    static boolean useGUI = true;
+    static boolean useGUI = false;
     /**
      * The main program. By default, runs seek() and scram() on a random seed, with a
      * graphical user interface.

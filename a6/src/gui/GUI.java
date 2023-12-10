@@ -1,5 +1,6 @@
 package gui;
 
+import cms.util.maybe.Maybe;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
@@ -248,6 +249,6 @@ public class GUI extends JFrame {
     }
     public synchronized void finishAnimating() {
         animating = false;
-           // TODO: support concurrency better
+        notifyAll();
     }
 }
