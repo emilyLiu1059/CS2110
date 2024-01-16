@@ -2,4 +2,4 @@
 ## course project description
 
 
-[Course Homepage](https://www.cs.cornell.edu/courses/cs2110/2023fa/)
+[Course Homepage]([[https://www.cs.cornell.edu/courses/cs2110/2023fa/](https://www.cs.cornell.edu/courses/cs2110/2023fa/assignments.html)]
